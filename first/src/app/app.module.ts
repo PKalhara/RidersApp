@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -13,7 +14,7 @@ import { LandingPage } from '../pages/landing-page/landing-page';
 import { UserRegistration } from '../pages/user-registration/user-registration';
 import { OrdersToComplete } from '../pages/orders-to-complete/orders-to-complete';
 import { Auth } from '../providers/auth';
-import { HttpModule } from '@angular/http';
+
 
 
 @NgModule({

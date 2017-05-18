@@ -16,12 +16,14 @@
       My Orders
     </ion-list-header>
 
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
     <ion-item-sliding *ngFor="let dat of data">
       <ion-item>
         <ion-avatar item-start>
-          <img src="../assets/1.png">
+          <img src="http://localhost:8100/assets/1.png">
         </ion-avatar>
-        <h2>Venkman</h2>
+        <h2>{{ dat.title }}</h2>
         <p>Back off man, I'm a scientist.</p>
       </ion-item>
       <ion-item-options>

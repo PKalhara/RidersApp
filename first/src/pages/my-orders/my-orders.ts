@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Http,Response, RequestOptions, Headers} from '@angular/http';
 
 
 /**
@@ -19,8 +20,8 @@ export class MyOrders {
   items: string[];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-   this.initializeItems();
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http) {
+   
   }
   
   
@@ -39,6 +40,18 @@ export class MyOrders {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyOrders');
+    console.log(this.navParams.get('rid'));
+
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+    const body = { id: this.navParams.get('rid')};
+    
+    this.http.post('http://localhost:3001/getAccepetedOrders', JSON.stringify(body), {headers: headers}).map(res=>res.json()).subscribe( data => {
+        console.log(data);
+        this.items=data;
+
+    });
+
   }
   
     getItems(ev: any) {
